@@ -1,5 +1,7 @@
 ##gPop用法##
 
+> gPop基于jquery
+
 <pre>
 $(el).gPop({
     zIndex: 9999999,
