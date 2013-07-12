@@ -15,7 +15,7 @@
     });
  */
 ;(function($){
-  var win = $(window),
+	var win = $(window),
 		doc = $(document),
 		body = $('body');
 	var position = function(){
@@ -152,7 +152,16 @@
 				'opacity': self.settings.opacity,
 				'z-index': self.settings.zIndex
 			});
+			if (self.IE6) {
+				self.Lock.css({
+					'height': body.height()
+				});
+				self.createIframe(self.Lock);
+			};
 			body.append(self.Lock);
+		},
+		createIframe: function(elem){
+			elem.innerHTML = '<iframe style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:-1;border:0 none;filter:alpha(opacity=0)"></iframe>';
 		},
 		createClose: function(){
 			var self = this;
